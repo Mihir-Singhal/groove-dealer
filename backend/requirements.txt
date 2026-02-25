@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+langchain
+langchain-groq
+langchain-community
+spotipy
+pydantic
+slowapi
+python-dotenv
+httpx
