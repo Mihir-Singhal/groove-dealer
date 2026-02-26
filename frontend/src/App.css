@@ -34,8 +34,29 @@
     background-repeat: no-repeat;
     color: var(--text-main);
     min-height: 100vh;
-    overflow-x: hidden; /* Prevents horizontal scrolling bugs */
+    overflow-x: hidden; 
   }
+
+  .header-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Forces the header to span the entire screen width */
+    padding: 40px 8%; /* 8% pushes them elegantly to the far left and right edges */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 50;
+  }
+  
+  .app-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  } 
   
   /* ==========================================
      3. LAYOUT & CONTAINERS
@@ -47,20 +68,16 @@
     justify-content: flex-start;
     width: 100%;
     max-width: 800px;
-    padding: 25vh 20px 50px 20px; /* Reduced from 35vh, added side padding */
+    padding: 25vh 20px 50px 20px; 
     box-sizing: border-box;
     position: relative;
   }
   
   .title {
     font-family: 'Great Vibes', cursive;
-    font-size: 3rem; 
-    position: absolute;
-    top: 30px;
-    left: 50px;
+    font-size: 3.2rem;
     margin: 0;
     text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-    z-index: 10;
   }
   
   /* ==========================================
@@ -90,7 +107,7 @@
   
   .search-input {
     width: 100%;
-    background: var(--bg-dark); /* Fallback for transparency */
+    background: var(--bg-dark); 
     background: transparent;
     border: none;
     padding: 20px;
@@ -99,7 +116,7 @@
     outline: none;
     text-align: center;
     box-sizing: border-box;
-    border-radius: 14px; /* Matches outer wrapper minus padding */
+    border-radius: 14px; 
   }
   
   .search-input::placeholder {
@@ -170,12 +187,12 @@
   }
   
   .album-art {
-    width: 100px; /* Slightly reduced for better default balance */
+    width: 100px; 
     height: 100px;
     border-radius: 12px;
     object-fit: cover;
     margin-right: 20px;
-    flex-shrink: 0; /* Prevents image from squishing */
+    flex-shrink: 0; 
   }
   
   .track-info {
@@ -183,7 +200,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    overflow: hidden; /* Crucial for text ellipsis */
+    overflow: hidden; 
   }
   
   /* Bulletproof Text Wrapping */
@@ -250,18 +267,26 @@
   
   @media (max-width: 768px) {
     .app-container {
-      padding-top: 12vh; /* Move up so mobile keyboards don't block the UI */
+      padding-top: 12vh; 
+    }
+
+    .header-container {
+      padding: 20px;
+      background: transparent;
+    }
+
+    .app-logo {
+      width: 60px; 
+      height: 60px;
+      border-radius: 14px;
     }
   
     .title {
-      position: static; /* Removes absolute positioning */
-      text-align: center;
-      margin-bottom: 30px;
       font-size: 2.5rem;
     }
   
     .search-container {
-      padding: 25px 15px; /* Reclaim horizontal space */
+      padding: 25px 15px; 
     }
   
     .track-card {
@@ -269,11 +294,11 @@
     }
   
     .track-card:not(:first-child) {
-      margin-top: -15px; /* Reduce overlap on mobile so text remains readable */
+      margin-top: -15px; 
     }
   
     .album-art {
-      width: 75px; /* Scale down image to give text room */
+      width: 75px; 
       height: 75px;
       margin-right: 15px;
     }

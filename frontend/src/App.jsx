@@ -39,34 +39,38 @@ function App() {
     };
 
     return (
-        <div className="app-container">
+        <>
+          {/* --- THE FULL-WIDTH NAVBAR --- */}
+          <header className="header-container">
             <h1 className="title">Groove Dealer</h1>
-            
+            <img src="/favicon.png" alt="Groove Dealer Logo" className="app-logo" />
+          </header>
+      
+          {/* --- THE CENTERED APP CONTENT --- */}
+          <div className="app-container">
             <ChatInput onSubmit={handleSearch} isLoading={isLoading} />
-
+      
             {errorMessage && (
-            <div className="error-banner">
+              <div className="error-banner">
                 ⚠️ {errorMessage}
-            </div>
-        )}
-
-            {/* Render the stacked cards if we have data */}
-            {recommendations.length > 0 && (
-                <div className="results-container">
-                    {recommendations.map((track, index) => (
-                        <TrackCard 
-                            key={index} 
-                            track={track} 
-                            // Reverse z-index so top cards overlap bottom cards
-                            index={100 - index} 
-                        />
-                    ))}
-                    {/* An invisible div we use to scroll the page down to */}
-                    <div ref={resultsEndRef} />
-                </div>
+              </div>
             )}
-        </div>
-    );
+      
+            {recommendations.length > 0 && (
+              <div className="results-container">
+                {recommendations.map((track, index) => (
+                  <TrackCard 
+                    key={index} 
+                    track={track} 
+                    index={100 - index} 
+                  />
+                ))}
+                <div ref={resultsEndRef} />
+              </div>
+            )}
+          </div>
+        </>
+      );
 }
 
 export default App;
